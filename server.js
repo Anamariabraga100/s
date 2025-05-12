@@ -60,7 +60,9 @@ const storageFeed = multer.diskStorage({
 const uploadFeed = multer({ storage: storageFeed });
 
 // Rotas de autenticação
-app.use('/api/auth', authRoutes);
+const authMiddleware = require('./middleware/auth');
+app.use(authMiddleware);
+
 
 // Rotas protegidas
 app.use('/api/protected/*', authMiddleware);
