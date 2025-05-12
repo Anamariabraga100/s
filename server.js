@@ -6,7 +6,6 @@ const fs = require('fs').promises;
 const multer = require('multer');
 const sharp = require('sharp');
 const axios = require('axios');
-const authMiddleware = require('./middleware/auth');
 const auth = require('./middleware/auth');
 const { v4: uuidv4 } = require('uuid');
 const { createClient } = require('@supabase/supabase-js');
