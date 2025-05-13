@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); // IMPORTAR PRIMEIRO
 const dotenv = require('dotenv');
 const path = require('path');
 const fs = require('fs').promises;
@@ -10,8 +10,17 @@ const auth = require('./middleware/auth');
 const { v4: uuidv4 } = require('uuid');
 const { createClient } = require('@supabase/supabase-js');
 
-// Load environment variables
 dotenv.config();
+
+const app = express();
+
+app.use(cors({
+  origin: '*', // ou 'https://rafaelabuggati.site'
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
+// Load environment variables
 
 // Inicialização do cliente Supabase
 const supabase = createClient(
