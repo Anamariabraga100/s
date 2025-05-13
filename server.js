@@ -28,7 +28,6 @@ const supabase = createClient(
   process.env.SUPABASE_KEY
 );
 
-const app = express();
 
 // Middleware
 app.use(cors());
